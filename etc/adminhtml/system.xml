@@ -19,6 +19,11 @@
                     <comment>Forces the redirect to use a secure connection</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="allowed_customer_group" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allowed customer groups</label>
+                    <comment>If customer logged in and customer group belong to selected it will be allowed to browse the site, otherwise it will be redirect to the customer page</comment>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                </field>
             </group>
         </section>
     </system>

@@ -25,6 +25,7 @@ class ModuleCheck
      * Configuration
      */
     const MODULE_CONFIG_ENABLED = 'customer/BitExpert_ForceCustomerLogin/enabled';
+    const MODULE_CONFIG_ALLOWED_GROUP = 'customer/BitExpert_ForceCustomerLogin/allowed_customer_group';
 
     /**
      * @var ScopeConfigInterface
@@ -50,5 +51,17 @@ class ModuleCheck
             self::MODULE_CONFIG_ENABLED,
             ScopeInterface::SCOPE_STORE
         );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowedCustomerGroups()
+    {
+        $groups = $this->scopeConfig->getValue(
+            self::MODULE_CONFIG_ALLOWED_GROUP,
+            ScopeInterface::SCOPE_STORE
+        );
+        return explode(',', $groups);
     }
 }

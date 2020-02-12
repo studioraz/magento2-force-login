@@ -128,8 +128,9 @@ class LoginCheck implements LoginCheckInterface
             return false;
         }
 
-        // if user is logged in, every thing is fine
+        // if customer is logged in and customer in allowed group, every thing is fine
         if ($this->customerSession instanceof \Magento\Customer\Model\Session &&
+            in_array($this->customerSession->getCustomerGroupId(), $this->moduleCheck->getAllowedCustomerGroups()) &&
             $this->customerSession->isLoggedIn()) {
             return false;
         }
